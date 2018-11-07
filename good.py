@@ -29,9 +29,10 @@ while True:
             requestimg=requests.get(good['propImg'])
             with open('goodimg/{0}.jpg'.format(good['propName'].replace('/','')),'wb') as file:
                 file.write(requestimg.content)
-                if jsongood['data']['totalPage'] == page:
-                    break
-                page += 1
+            time.sleep(1)
+        if jsongood['data']['totalPage'] == page:
+            break
+        page += 1
         time.sleep(2)
     except:
         pass
